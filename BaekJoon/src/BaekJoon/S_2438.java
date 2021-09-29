@@ -1,3 +1,4 @@
+package BaekJoon;
 import java.util.Scanner;
 
 public class S_2438 {
