@@ -1,6 +1,8 @@
 package Programmers;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 public class S10 {
 	
@@ -15,15 +17,27 @@ public class S10 {
 	//1번 방법
 	public static String solution(String[] participant, String[] completion) {
         String answer = "";
-        Arrays.sort(participant);
-        Arrays.sort(completion);
-        int i=0;
-        for (i=0; i<completion.length; i++){
-            if (!participant[i].equals(completion[i])){
-                return participant[i];
-            }
-        }
-        return participant[i];
+        Map<String, Integer> map = new HashMap();
+    	
+    	for(String per : participant) {
+    		if(map.get(per) == null) {
+    			map.put(per, 1);
+    		} else { // 동명이인 처리
+    			map.put(per, map.get(per) + 1); 
+    		}
+    	}
+    	
+    	for(String com : completion) {
+    			map.put(com, map.get(com) - 1);
+    	}
+    	
+    	for(String set : map.keySet()) { 
+    		if(map.get(set) != 0) {
+    			answer += set;
+    		}
+    	}
+
+        return answer;
 
     }
 	
