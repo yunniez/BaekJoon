@@ -8,36 +8,35 @@ package Programmers;
 //2016년 a월 b일은 실제로 있는 날입니다. (13월 26일이나 2월 45일같은 날짜는 주어지지 않습니다)
 public class S15 {
 	public static void main(String[] args) {
-		int a = 1;
-		int b = 6;
+		int a = 8;
+		int b = 31;
 		String answer = solution(a,b);
 		System.out.println(answer);
 	}
 	
 	
 	 public static String solution(int a, int b) {
-	        String answer = "";
-	        String[] day = {"FRI","SAT","SUN","MON","TUE","WED","THU"};
-	        int count = 0; //총 날짜
-	        
-	        //날짜 구하기
-	        count = b;
-	        for(int i=1;i<=a-1;i++) {
-			  if(i%2==0 && i!=2) {
-			      count += 30;
-			  }else if(i%2==1) {
-			      count += 31;
-			  }else if(i==2) {
-			      count += 29;
-			  		}
-		      }
-	        
-	        int idx = (count%7);
-	        if(idx==-1) idx=6;
-	        
-	        
-	        answer = day[idx];
-	        
-	        return answer;
+		 int[] days = {0,31,29,31,30,31,30,31,31,30,31,30,31};
+		 String[] weeks = {"FRI","SAT","SUN","MON","TUE","WED","THU"};
+		 String answer = "";
+		 
+		 int idx=b;
+		 
+		 if(a==1){
+			 idx = idx%7-1;
+			if(idx==-1)idx=6;
+			answer = weeks[idx];
+		 }else{
+		    for(int i=1; i<a; i++){
+		    	idx += days[i]; 
+		    }
+		    
+		    idx = idx%7-1;
+		 
+		 	if(idx==-1)idx=6;
+		 	answer = weeks[idx];
+		 
+		 }
+		  return answer;
 	    }
 }
