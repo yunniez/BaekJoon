@@ -13,7 +13,7 @@ public class S16 {
 				list.add(arr[i]);
 			}
 		}
-
+		//answer의 사이즈를 미리 알수 없기 때문에 꼭 하단에 배치해야 함
 		int[] answer = new int[list.size()];
 		
 		for(int i=0;i<list.size();i++) {
