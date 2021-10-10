@@ -7,11 +7,13 @@ public class S26 {
 	}
 	
 	public static String solution(int num) {
-        String answer = "";
+		String answer = "";
         
-        if(num%2==0){
+        int mnum = Math.abs(num);
+        
+        if(mnum%2==0){
             answer = "Even";
-        }else if(num%2==1){
+        }else if(mnum%2==1){
             answer = "Odd";
         }
         
