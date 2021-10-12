@@ -16,7 +16,6 @@ public class S_10828 {
 		//테스트 케이스 갯수
 		int count = Integer.parseInt(br.readLine());
 		Stack<Integer> stack = new Stack<Integer>();
-		String input="";
 		
 		for(int i=0;i<count;i++) {
 			String str = br.readLine();
@@ -25,7 +24,6 @@ public class S_10828 {
 				String[] tk = str.split(" ");
 				int num = Integer.parseInt(tk[1]);
 				stack.push(num);
-				input = String.valueOf(num);
 			}else if(str.contains("pop")) {
 				bw.write(stack.empty() ? "-1\n":String.valueOf(stack.pop()) + "\n");
 			}else if(str.contains("size")) {
@@ -33,7 +31,7 @@ public class S_10828 {
 			}else if(str.contains("empty")) {
 				bw.write(stack.empty() ? "1\n":"0\n");
 			}else if(str.contains("top")) { 
-				bw.write(stack.empty() ? "-1\n": input + "\n");
+				bw.write(stack.empty() ? "-1\n": stack.peek() + "\n");
 			}
 		}
 		bw.flush();
