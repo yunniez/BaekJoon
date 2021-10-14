@@ -14,23 +14,21 @@ public class S_9012 {
 		
 		int count = Integer.parseInt(br.readLine());
 
-		Stack<String> s = new Stack<String>();
 		
 		for(int i=0;i<count;i++){
             String str = br.readLine();
             String answer = "YES";
-            Stack<Integer> stack = new Stack<>();
+    		Stack<String> stack = new Stack<String>();
 
             for(int j=0;j<str.length();j++){
-                if(str.charAt(j) == '(')
-                    stack.push(1);
-
-                else if(stack.empty()) {
+                if(str.charAt(j) == '(') {
+                    stack.push("(");
+                }else if(stack.empty()) {
                     answer = "NO";
                     break;
+                }else {
+                	stack.pop();
                 }
-
-                else stack.pop();
             }
             
             if(!stack.empty()) answer = "NO";
