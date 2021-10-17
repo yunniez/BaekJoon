@@ -11,35 +11,36 @@ public class S_17298 {
 
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-		int n = Integer.parseInt(br.readLine());
+		//테스트 케이스 수
+		int count = Integer.parseInt(br.readLine());
+		//데이터 값
+		String[] line = br.readLine().split(" ");
 
-		String line[] = br.readLine().split(" ");
-
-		int result[] = new int[n];
-		for(int i=0;i<n;i++)
-			result[i] = -1;
+		int[] answer = new int[count];
+		for(int i=0;i<count;i++)
+			answer[i] = -1;
 		
-		Stack<int[]> st = new Stack<int[]>();
+		Stack<int[]> stack = new Stack<int[]>();
 		
-		for (int i = 0; i < n; i++) {
+		for (int i=0; i<count; i++) {
+			//새로 들어가는 값
 			int number[] = new int [2];
 			number[0] = Integer.parseInt(line[i]);
 			number[1] = i;	//입력순서
 
-			if(st.isEmpty())
-				st.push(number);
+			if(stack.isEmpty())
+				stack.push(number);
 			else {
-				while(!st.isEmpty() && st.peek()[0] < number[0]) {
-					result[st.peek()[1]] = number[0];
-					st.pop();
+				while(!stack.isEmpty() && stack.peek()[0] < number[0]) {
+					answer[stack.peek()[1]] = number[0];
+					stack.pop();
 					continue;
 				}
-				st.push(number);
+				stack.push(number);
 			}
 		}
 		
-		for(int a : result)
-			bw.append(a+" ");
+		for(int a : answer) bw.append(a+" ");
 		bw.close();
 		br.close();
 	}
