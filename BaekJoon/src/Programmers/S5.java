@@ -20,8 +20,8 @@ public class S5 {
         
 		String answer = "";
 		//왼손,오른손 위치
-		int leftAfter = 10;
-		int rightAfter = 12;
+		int leftIdx = 10;
+		int rightIdx = 12;
 		
 		for(int k=0;k<numbers.length;k++) {
 		//numbers값
@@ -29,34 +29,38 @@ public class S5 {
 		//해당 숫자 시 무조건적으로 사용하는 손가락
 		if(num!=2 || num!=5 || num!=8 || num!=0 ) {
 		switch(num) {
-			case 1: case 4: case 7: answer += "L"; leftAfter=num; continue;
-			case 3: case 6: case 9: answer += "R"; rightAfter=num; continue;
+			case 1: case 4: case 7: answer += "L"; leftIdx=num; continue;
+			case 3: case 6: case 9: answer += "R"; rightIdx=num; continue;
 			}
 		}
 		
 		if(num==2 || num==5 || num==8 || num==0 ){
-			if(num==0 && (leftAfter==10 || rightAfter==12)) {
+			//시작시 받은 숫자가 0인 경우
+			if(num==0 && (leftIdx==10 && rightIdx==12)) {
 				if(hand.equals("right")){
 					answer += "R";
-					rightAfter=num;
+					rightIdx=num;
 				}else if(hand.equals("left")){
 					answer += "L";
-					leftAfter=num;
+					leftIdx=num;
 				}
 			}else {
 			//가운데 자리 수들 가까이 있을때 어디로 가야 할지
-				int leftDist = Math.abs((leftAfter-1)/3-(num-1)/3) + Math.abs((leftAfter-1)%3-1); 
-                int rightDist = Math.abs((rightAfter-1)/3-(num-1)/3) + Math.abs((rightAfter-1)%3-1);
+				if(num==0) {num=11;}
+				
+				//거리 구하기 = (절대적인 거리) + (숫자 보완)
+				int leftDist = Math.abs((leftIdx-1)/3-(num-1)/3) + Math.abs((leftIdx-1)%3-1); 
+                int rightDist = Math.abs((rightIdx-1)/3-(num-1)/3) + Math.abs((rightIdx-1)%3-1);
                 
                 //거리가 같을 때
                 if(leftDist == rightDist){
                     if(hand.equals("right")){
                     	answer += "R";
-    					rightAfter=num;
+    					rightIdx=num;
                     }
                     else{
                     	answer += "L";
-    					leftAfter=num;
+    					leftIdx=num;
                     }
                 }
                 //거리가 다를 때
@@ -64,11 +68,11 @@ public class S5 {
                 	//오른쪽이 더 가까움
                     if(leftDist>rightDist){
                     	answer += "R";
-    					rightAfter=num;
+    					rightIdx=num;
                     }
                     else{ // 왼쪽이 더 가까움
                     	answer += "L";
-    					leftAfter=num;
+    					leftIdx=num;
                     }   
                 }
 				}
