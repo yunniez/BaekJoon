@@ -48,11 +48,7 @@ public class S30 {
 		if(max==count2) list.add(2);
 		if(max==count3) list.add(3);
 		
-		System.out.println(list);
-		
 		int[] answer = new int[list.size()];
-		System.out.println(list.size());
-		System.out.println(answer.length);
 		
 		for(int i=0;i<list.size();i++) {
 			answer[i] = list.get(i);

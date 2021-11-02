@@ -22,6 +22,8 @@ public class S29 {
             		int count = 0;
             		//애초에 3개의 숫자를 뽑았을 때 sum이 2이하로 나올 수가 없음
             		//따라서 2를 제외하는 조건은 제외
+            		
+            		//소수의 갯수를 구하기 위해서 for문을 돌린다
             		for(int a=2;a<sum+1;a++) {
             			if(sum%a == 0) {
             				count++;
