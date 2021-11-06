@@ -3,7 +3,7 @@ package Programmers;
 import java.util.Arrays;
 import java.util.HashMap;
 
-/* 답안은 통과했으나 런타임 에러 난 코드...
+/* 1차 답안은 통과했으나 런타임 에러 난 코드...
  * for(int i = 0; i<phone_book.length;i++) {
 	for(int j = i+1; j<phone_book.length;j++) {
 		if(phone_book[j].substring(0, phone_book[i].length()).equals(phone_book[i])) {
