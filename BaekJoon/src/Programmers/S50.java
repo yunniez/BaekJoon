@@ -1,9 +1,12 @@
 package Programmers;
 
+import java.util.Arrays;
+
 public class S50 {
 	public static void main(String[] args) {
-		int[] prices = {1, 2, 3, 2, 3};
-		System.out.println(solution(prices));
+		int[] prices = {1, 2, 3, 2, 3, 1};
+		System.out.println(Arrays.toString(solution(prices)));
+		
 	}
 	
 	public static int[] solution(int[] prices) {
@@ -14,10 +17,10 @@ public class S50 {
                 answer[i] = 0;
             }else { 
                 for(int j=i+1;j<prices.length;j++) { 
+                	answer[i]++;
                     if(prices[i] > prices[j]) {
-	                    answer[i]++; 
                         break; 
-                    }else { answer[i]++; } 
+                    }
                 }
 	        } 
         }
