@@ -12,14 +12,13 @@ public class S56 {
     public static long solution(long n) {
         long answer = 0;
         
-        String str = String.valueOf(n);
-        String[] temp = str.split("");
+        String[] temp = String.valueOf(n).split("");
         Arrays.sort(temp, Collections.reverseOrder());
         
         String newStr = "";
         
         for(String i : temp) newStr += i;
-        answer = Long.valueOf(newStr);
+        answer = Long.parseLong(newStr);
         
         return answer;
     }
