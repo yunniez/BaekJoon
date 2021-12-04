@@ -1,5 +1,8 @@
 package Programmers;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.PriorityQueue;
 
 // ·¹º§ 2 ´õ ¸Ê°Ô
@@ -24,8 +27,6 @@ public class S38 {
 	         q.add(i);
 	    }
 		
-		
-		
 		while(q.peek() < K) {
 			int a = q.poll();
 			if (q.isEmpty()) {
@@ -37,5 +38,6 @@ public class S38 {
 		}
         return answer;
     }
+	
 	
 }
