@@ -47,10 +47,8 @@ public class S60 {
         		ans += strArr1[j];
         	}
         	
-        	System.out.println(ans);
+        	answer[i] = ans;
         }
-        
-        
         
         return answer;
     }
