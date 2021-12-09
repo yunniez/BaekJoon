@@ -1,0 +1,1 @@
+SELECT max(datetime) as ½Ã°£ from ANIMAL_INS;
