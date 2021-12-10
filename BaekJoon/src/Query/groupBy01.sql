@@ -1,0 +1,1 @@
+SELECT animal_type, count(animal_type) from ANIMAL_INS group by animal_type order by animal_type;
