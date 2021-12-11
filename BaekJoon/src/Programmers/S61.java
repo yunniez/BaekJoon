@@ -1,7 +1,6 @@
 package Programmers;
 
 import java.util.Arrays;
-import java.util.Comparator;
 
 public class S61 {
 	public static void main(String[] args) {
@@ -18,12 +17,11 @@ public class S61 {
 
         String answer = "";
         
-        Arrays.sort(str, new Comparator<String>() {
-    		@Override
-    		public int compare(String str1, String str2) {
-    			return (str2+str1).compareTo(str1+str2);
-    		}
-    	});
+        System.out.println(Arrays.toString(str));
+        //람다식 표기
+        Arrays.sort(str, (str1, str2) -> ((str2+str1).compareTo(str1+str2)));
+        System.out.println(Arrays.toString(str));
+        
     	
     	if(str[0].startsWith("0")) { 
     		answer += "0";
@@ -34,4 +32,5 @@ public class S61 {
     	}
         return answer;
     }
+	
 }
