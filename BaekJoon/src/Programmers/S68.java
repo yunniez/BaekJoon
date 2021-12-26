@@ -28,6 +28,4 @@ public class S68 {
         
         return answer;
     }
-	
-	
 }
