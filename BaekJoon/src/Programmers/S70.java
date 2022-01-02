@@ -22,7 +22,6 @@ public class S70 {
             }
         }
         
-        
         return answer;
     }
 }
